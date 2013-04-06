@@ -21,42 +21,42 @@ Short instruction:
 
 * Install Ruby, 1.8.3 or newer. The script doesn't work with 1.8.2.
 
-* Edit config.rb
+* Edit `config.rb`
   You must input the following information:
-  $user_name - your user name on last.fm
-  $password  - your password on last.fm
+  `$user_name` - your user name on last.fm
+  `$password`  - your password on last.fm
   
   You may also want to edit:
-  $ipod_paths - if your iPod is mounted somewhere nonstandard, fix it
+  `$ipod_paths` - if your iPod is mounted somewhere nonstandard, fix it
   
   There are some more options, but you probably won't need them.
-  Each one of them is commented in config.rb
+  Each one of them is commented in `config.rb`
 
 * Mount your iPod. Depending on your configuration it might happen
   automatically when you connect it, or you might have to do it by hand.
-  Typical paths where it is mounted are /media/sda2 /media/sdb2 etc.
-  If it's a nonstandard place, add it to $ipod_paths in config.rb
+  Typical paths where it is mounted are `/media/sda2` `/media/sdb2` etc.
+  If it's a nonstandard place, add it to `$ipod_paths` in `config.rb`
 
 * Try running:
-  ./get_play_counts.rb
+  `./get_play_counts.rb`
 
   It will read list of songs you played from iPod, and
-  write it to stdandard output. This script will not send anything to last.fm.
+  write it to standard output. This script will not send anything to last.fm.
 
   The format is simply one entry per line, so you can use any command
   line tool like grep to manage this list. 
 
   For example you can remove songs that you don't want to submit to last.fm
   (like audiobooks, or things that you don't want people to know that you listen to).
-  The same effect can also be achieved by adding artists to $artists_ignore
-  list in config.rb.
+  The same effect can also be achieved by adding artists to `$artists_ignore`
+  list in `config.rb`.
   
   If everything worked, go to the next step. If it didn't, check that:
   * Your iPod is mounted
-  * The right path is in $ipod_paths in config.rb
+  * The right path is in `$ipod_paths` in `config.rb`
   
 * Send it to last.fm:
-  ./get_play_counts.rb | ./as_sumbit.rb
+  `./get_play_counts.rb | ./as_sumbit.rb`
   
   The script will inform you whether it succeeded or not.
   It aborts on the first error.
@@ -64,7 +64,7 @@ Short instruction:
   If everything was well, your songs should be on your user page on last.fm.
   
   If you get error on the first song, check whether you have correct
-  user name and password in config.rb and network connection works.
+  user name and password in `config.rb` and network connection works.
 
   Sometimes you won't get errors, but some songs are not on the list.
   This is because of last.fm filters.
@@ -88,7 +88,7 @@ it will clean play counts automatically. Some iPod programs (like iTunes)
 do that every time you sync your iPod too.
 
 If you don't use any such program, and want to manage this by hand,
-you can set $last_old in config.rb to the date of the last song
+you can set `$last_old` in `config.rb` to the date of the last song
 you don't want to care about.
 
 Ratings
@@ -96,7 +96,9 @@ Ratings
 
 There's one more script in the set, for getting ratings from iPod.
 Just run it like this:
-  ./get_ratings.rb
+
+    ./get_ratings.rb
+
 And it will print list of all rated (1-5 stars, those with 0 stars are considered
 "not rated", and are not printed) songs on the standard out.
 
